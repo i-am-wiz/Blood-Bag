@@ -1,0 +1,77 @@
+.card
+{
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    margin-top: 100px;
+    border-radius: 0px;
+}
+
+.card-body{
+  background-color: white;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+
+#right{
+  padding-top: 10px;
+  margin-left: 40%;
+}
+#github{
+  margin-left: 39px;
+}
+
+body{
+ background-repeat: no-repeat;
+ background-size: cover;
+ background-color: #F5F2F2;
+}
+
+#nav{
+color:#E13B2A;
+}
+/*#card1{
+border-radius: 0px;
+border-top-width: thin;
+z-index :1;
+}*/
+#containerrow{
+display:flex;
+flex-wrap: wrap;
+}
+.testimonials {
+display: flex;
+flex-wrap:wrap ;
+justify-content: space-between;
+position: relative;
+top:  40px;
+margin-bottom: 100px;
+}
+.tbox {
+width: 80%;
+margin-left: 50px;
+margin-right: 50px;
+padding: 50px;
+border:1px solid white ;
+box-sizing: border-box;
+margin-top: 50px;
+}
+
+#footer{
+  background-color: #CD3624;
+  height:130px;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+}
+
+#card
+{
+  width:100%;
+}
+
+#icons
+{
+  align-self: center;
+  padding-top: 15px;
+  padding-bottom: 15px;
+}

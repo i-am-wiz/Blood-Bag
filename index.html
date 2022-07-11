@@ -1,0 +1,164 @@
+﻿<html>
+<head>
+<title>BLOOD BAGS</title>
+<link rel="apple-touch-icon" sizes="128x128" href="icons/blood-donation (128x128).png">
+<link rel="icon" type="image/png" sizes="32x32" href="icons/blood-donation (32x32).png">
+<link rel="icon" type="image/png" sizes="16x16" href="icons/blood-donation (16x16).png">
+<link rel="shortcut icon" href="icons/blood-donation (24x24).png">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="https://kit.fontawesome.com/76c970a45b.js" crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+<link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
+<link href="css/style.css" rel="stylesheet">
+<link rel="manifest" href="/manifest.json" />
+</head>
+<body>
+
+  <nav class="navbar navbar-expand-lg navbar-light bg-danger" role="navigation" id="nav">
+    <div class="container-fluid">
+    <span class="navbar-brand mb-0 h1">Blood Bags</span>
+
+    <div class="d-flex">
+    <div  class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="nav navbar-nav ">
+        <li class="nav-item">
+          <a class="nav-link" href="login.html"><font color="white"> HOSPITAL Login</a></font>
+        </li>
+      </ul>
+    </div>
+  </div>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  </div>
+  </nav>
+  <section>
+    <div class="container">
+      <div class="row" id="containerrow">
+
+      </div>
+    </div>
+  </section>
+
+  <div class="testimonials">
+      <div class="tbox">
+        <p>
+          “If you’re a blood donor, you’re a hero to someone, somewhere, who received your gracious gift of life.”<br>
+          “The donation of blood makes the difference between life and death.”
+        </p>
+      </div>
+
+      <div class="tbox">
+          <p>“The donation of blood makes the difference between life and death.”<br>
+            “You don’t have to have a medical degree to save a life. Just a fair degree of humanity. Give Blood. Save Life.”
+          </p>
+      </div>
+  </div>
+
+  <section id="footer">
+      <div id="icons">
+      <a href="www.linkedin.com/in/ved-timbadiya"><i class="px-2 fab fa-linkedin fa-2x"></i></a>
+            <!-- <a href=""> <i class="px-2 fab fa-instagram fa-2x"></i></a> -->
+            <!-- <a href=""><i class="px-2 fab fa-facebook fa-2x"></i></a> -->
+      </div>
+      <div >
+            
+            <p > Copyright ©2022 Ved Timbadiya</p>
+      </div>
+  </section>
+
+<script src="https://www.gstatic.com/firebasejs/7.12.0/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/7.12.0/firebase-analytics.js"></script>
+<script src="https://www.gstatic.com/firebasejs/7.12.0/firebase-database.js"></script>
+
+<script>
+
+const firebaseConfig = {
+  apiKey: "AIzaSyDFmKiLjoVhxENC_CbR3d5gsZh_AWepgfE",
+  authDomain: "blood-bag-9f4bb.firebaseapp.com",
+  databaseURL: "https://blood-bag-9f4bb-default-rtdb.firebaseio.com/",
+  projectId: "blood-bag-9f4bb",
+  storageBucket: "blood-bag-9f4bb.appspot.com",
+  messagingSenderId: "581180260792",
+  appId: "1:581180260792:web:719380949b612bfc0b8f4d",
+  measurementId: "G-CLF42XWNQF"
+};
+
+  firebase.initializeApp(firebaseConfig);
+  firebase.analytics();
+
+  getData();
+      function getData(){
+        firebase.database().ref('/users/').once('value',function(snapshot){
+          console.log(snapshot.val());
+          var i=0;
+        snapshot.forEach(function(thisvalue){
+
+          var main=document.createElement('div');
+          main.className='col-md-4 col-sm-6';
+
+          var div=document.createElement('div');
+          div.className='card  bg-light  border-dark mb-3';
+          div.setAttribute("id","card");
+          var div1=document.createElement('div');
+          div1.className='card-body';
+
+          var name=document.createElement('h4');
+          name.setAttribute("id","name"+i);
+          name.className='card-header';
+          var abpos=document.createElement('h5');
+          abpos.setAttribute("id","abpos" +i);
+          var abneg=document.createElement('h5');
+          abneg.setAttribute("id","abneg" + i);
+          var bpos=document.createElement('h5');
+          bpos.setAttribute("id","bpos"+ i);
+          var bneg=document.createElement('h5');
+          bneg.setAttribute("id","bneg"+i);
+          var apos=document.createElement('h5');
+          apos.setAttribute("id","apos"+i);
+          var aneg=document.createElement('h5');
+          aneg.setAttribute("id","aneg"+i);
+          var oneg=document.createElement('h5');
+          oneg.setAttribute("id","oneg"+i);
+          var opos=document.createElement('h5');
+          opos.setAttribute("id","opos"+i);
+          var row=document.getElementById('containerrow');
+          
+          row.appendChild(main);
+          main.appendChild(div);
+          div.appendChild(div1);
+          div1.appendChild(name);
+          div1.appendChild(abpos);
+          div1.appendChild(abneg);
+          div1.appendChild(apos);
+          div1.appendChild(aneg);
+          div1.appendChild(bpos);
+          div1.appendChild(bneg);
+          div1.appendChild(opos);
+          div1.appendChild(oneg);
+         
+          // document.getElementById("name"+i).innerHTML="  ";
+          var childData5=thisvalue.val();
+          document.getElementById("abpos"+i).innerHTML="AB+  :  " + childData5['abpositive'];
+          document.getElementById("abneg"+i).innerHTML="AB-  :  " +childData5['abnegative'];
+          document.getElementById("apos"+i).innerHTML="A+   :  " + childData5['apositive'];
+          document.getElementById("aneg"+i).innerHTML="A-   :  " + childData5['anegative'];
+          document.getElementById("bpos"+i).innerHTML="B+   :  " + childData5['bpositive'];
+          document.getElementById("bneg"+i).innerHTML="B-   :  " + childData5['bnegative'];
+          document.getElementById("opos"+i).innerHTML="O+   :  " +childData5['opositive'];
+          document.getElementById("oneg"+i).innerHTML="O-   :  " + childData5['onegative'];
+          document.getElementById("name"+i).innerHTML+= childData5['Bank'];
+          
+          i++;
+        })
+         
+        })
+      }
+</script>
+
+</body>
+</html>
